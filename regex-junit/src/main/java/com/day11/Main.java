@@ -27,8 +27,8 @@ public class Main {
         return password.matches(regex);
     }
 
-    public static boolean IsValidPassWordR1(String password) {
-        String regex = ".{8,}";
+    public static boolean IsValidPassWordR2(String password) {
+        String regex = "(?=.*[A-Z]).{8,}";
 
         return password.matches(regex);
     }
@@ -94,12 +94,12 @@ public class Main {
             password = scanner.next();
             do
             {
-                if (!IsValidPassWordR1(password))
+                if (!IsValidPassWordR2(password))
                 {
                     System.out.print("Invalid re-enter password: ");
                     password = scanner.next();
                 }
-            }while (!IsValidPassWordR1(password));
+            }while (!IsValidPassWordR2(password));
             stayMain = false;
         }
 
