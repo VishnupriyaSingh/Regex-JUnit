@@ -21,6 +21,12 @@ public class Main {
         return email.matches(regex);
     }
 
+    public static boolean IsValidPhoneNo(String password) {
+        String regex = "^\\+(?:[0-9] ?){6,14}[0-9]$";
+
+        return password.matches(regex);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -31,6 +37,7 @@ public class Main {
         String password = "";
 
         boolean stayMain = true;
+        boolean staySub = true;
         while(stayMain)
         {
             System.out.print("Enter first Name: ");
@@ -66,12 +73,24 @@ public class Main {
                 }
             }while (!IsValidEmail(email));
 
+            System.out.print("Enter phone no: ");
+            phone = scanner.next();
+            do
+            {
+                if (!IsValidPhoneNo(phone))
+                {
+                    System.out.print("Invalid re-enter phone no: ");
+                    phone = scanner.next();
+                }
+            }while (!IsValidPhoneNo(phone));
+
             stayMain = false;
         }
 
         System.out.println("Final info ->\nFirst Name: " + firstName);
         System.out.println("Last Name: " + lastName);
         System.out.println("Email: " + email);
+        System.out.println("Phone No: " + phone);
 
         scanner.close();
     }
