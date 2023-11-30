@@ -27,6 +27,12 @@ public class Main {
         return password.matches(regex);
     }
 
+    public static boolean IsValidPassWordR1(String password) {
+        String regex = ".{8,}";
+
+        return password.matches(regex);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -84,6 +90,16 @@ public class Main {
                 }
             }while (!IsValidPhoneNo(phone));
 
+            System.out.print("Enter password: ");
+            password = scanner.next();
+            do
+            {
+                if (!IsValidPassWordR1(password))
+                {
+                    System.out.print("Invalid re-enter password: ");
+                    password = scanner.next();
+                }
+            }while (!IsValidPassWordR1(password));
             stayMain = false;
         }
 
@@ -91,6 +107,7 @@ public class Main {
         System.out.println("Last Name: " + lastName);
         System.out.println("Email: " + email);
         System.out.println("Phone No: " + phone);
+        System.out.println("Password: " + password);
 
         scanner.close();
     }
