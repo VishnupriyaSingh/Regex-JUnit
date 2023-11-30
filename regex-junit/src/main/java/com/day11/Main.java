@@ -15,6 +15,12 @@ public class Main {
         return lastName.matches(regex);
     }
 
+    public static boolean IsValidEmail(String email) {
+        String regex = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+(\\.[a-zA-Z]{2,})+";
+
+        return email.matches(regex);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,7 +31,6 @@ public class Main {
         String password = "";
 
         boolean stayMain = true;
-        boolean staySub = true;
         while(stayMain)
         {
             System.out.print("Enter first Name: ");
@@ -50,11 +55,23 @@ public class Main {
                 }
             }while (!IsValidLastName(lastName));
 
+            System.out.print("Enter email: ");
+            email = scanner.next();
+            do
+            {
+                if (!IsValidEmail(email))
+                {
+                    System.out.print("Invalid re-enter email: ");
+                    email = scanner.next();
+                }
+            }while (!IsValidEmail(email));
+
             stayMain = false;
         }
 
         System.out.println("Final info ->\nFirst Name: " + firstName);
         System.out.println("Last Name: " + lastName);
+        System.out.println("Email: " + email);
 
         scanner.close();
     }
