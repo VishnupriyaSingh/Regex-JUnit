@@ -27,8 +27,26 @@ public class Main {
         return password.matches(regex);
     }
 
+    public static boolean IsValidPassWordR1(String password) {
+        String regex = ".{8,}";
+
+        return password.matches(regex);
+    }
+
+    public static boolean IsValidPassWordR2(String password) {
+        String regex = "(?=.*[A-Z]).{8,}";
+
+        return password.matches(regex);
+    }
+
     public static boolean IsValidPassWordR3(String password) {
         String regex = "(?=.*[A-Z])(?=.*\\d).{8,}";
+
+        return password.matches(regex);
+    }
+
+    public static boolean IsValidPassWordR4(String password) {
+        String regex = "(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=])(?!.*[\\s]).{8,}";
 
         return password.matches(regex);
     }
@@ -94,12 +112,12 @@ public class Main {
             password = scanner.next();
             do
             {
-                if (!IsValidPassWordR3(password))
+                if (!IsValidPassWordR4(password))
                 {
                     System.out.print("Invalid re-enter password: ");
                     password = scanner.next();
                 }
-            }while (!IsValidPassWordR3(password));
+            }while (!IsValidPassWordR4(password));
             stayMain = false;
         }
 
