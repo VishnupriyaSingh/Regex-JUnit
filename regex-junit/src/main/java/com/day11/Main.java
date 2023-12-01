@@ -61,7 +61,6 @@ public class Main {
         String password = "";
 
         boolean stayMain = true;
-        boolean staySub = true;
         while(stayMain)
         {
             System.out.print("Enter first Name: ");
